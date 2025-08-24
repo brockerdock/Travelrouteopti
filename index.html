@@ -82,7 +82,8 @@
       mode: 'lines+markers',
       name: 'Reisedauer',
       line: { color: '#ef5350' },
-      yaxis: 'y1'
+      yaxis: 'y1',
+      hoverinfo: 'x+y'
     };
 
     const trace2 = {
@@ -91,12 +92,18 @@
       mode: 'lines+markers',
       name: 'Reisedistanz',
       line: { color: '#42a5f5' },
-      yaxis: 'y2'
+      yaxis: 'y2',
+      hoverinfo: 'x+y'
     };
 
     const layout = {
       title: 'Route Comparison',
-      xaxis: { title: 'Routenr' },
+      hovermode: 'x unified',
+      xaxis: {
+          title: 'Routenr',
+          tickmode: 'linear',
+          dtick: 1 // shows every tick at interval of 1
+        }
       yaxis: {
         title: 'Reisedauer (h)',
         titlefont: { color: 'firebrick' },
