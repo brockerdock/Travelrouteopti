@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Aug 24 12:29:44 2025
-
-@author: brock
-"""
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,68 +70,89 @@ Created on Sun Aug 24 12:29:44 2025
 <body>
 
   <h1>Vacation Route Optimization</h1>
+  
+  Basierend auf <a href="https://maps.app.goo.gl/BL4x8w5WfSD31jiS9">dieser Liste</a> habe ich mittels einem <a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem">Traveling Salesman</a> Algorithmus verschiedene optimale Routen berechnet, um ein Gefühl für Reisedauern in Georgien zu bekommen. Auf den verlinkten Karten sind die Routen als Luftlinien eingezeichnet. Für die Optimierung wurden aber reale Reisedauern verwendet.
 
   <div id="chart"></div>
 
   <script>
     const trace1 = {
-      x: [1, 2, 3, 4, 5],
-      y: [10, 15, 13, 17, 22],
+      x: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+      y: [48.0, 41.1, 37.3, 29.4, 40.2, 33.3, 30.5, 26.6, 24.8, 23.4, 21.6, 26.7, 13.3, 23.2, 16.5, 16.6, 21.9, 18.6, 19.6, 23.0],
       mode: 'lines+markers',
-      name: 'Route A',
-      line: { color: '#ef5350' }
+      name: 'Reisedauern Routen',
+      line: { color: '#ef5350' },
+      yaxis: 'y1'
     };
 
     const trace2 = {
-      x: [1, 2, 3, 4, 5],
-      y: [16, 5, 11, 9, 15],
+      x: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+      y: [2200.9, 1925.9, 1754.6, 1565.9, 2012.2, 1737.3, 1545.0, 1374.3, 1279.4, 1281.4, 1193.1, 1499.3, 751.2, 1069.2, 963.9, 969.1, 1333.0, 1115.1, 1087.5, 1308.3],
       mode: 'lines+markers',
-      name: 'Route B',
-      line: { color: '#42a5f5' }
+      name: 'Reisedistanz',
+      line: { color: '#42a5f5' },
+      yaxis: 'y2'
     };
 
     const layout = {
       title: 'Route Comparison',
-      xaxis: { title: 'Day' },
-      yaxis: { title: 'Distance (km)' },
+      xaxis: { title: 'Routenr' },
+      yaxis: {
+        title: 'Reisedauer (h)',
+        titlefont: { color: 'firebrick' },
+        tickfont: { color: 'firebrick' }
+      },
+      yaxis2: {
+        title: 'Reiseentfernung (km)',
+        titlefont: { color: 'royalblue' },
+        tickfont: { color: 'royalblue' },
+        overlaying: 'y',
+        side: 'right'
+      },
       plot_bgcolor: '#f3e5f5',
       paper_bgcolor: '#f3e5f5'
     };
 
-    Plotly.newPlot('chart', [trace1, trace2], layout);
+    Plotly.newPlot('dualYAxisChart', [trace1, trace2], layout);
   </script>
 
   <table>
     <thead>
       <tr>
-        <th>Places</th>
-        <th>Link</th>
+        <th>Beschreibung</th>
+        <th>Ortsanzahl</th>
+        <th>Link zur Route</th>
       </tr>
     </thead>
     <tbody>
-      <tr><td>Tbilisi</td><td><a href="#">Explore</a></td></tr>
-      <tr><td>Batumi</td><td><a href="#">Explore</a></td></tr>
-      <tr><td>Gudauri</td><td><a href="#">Explore</a></td></tr>
-      <tr><td>Kazbegi</td><td><a href="#">Explore</a></td></tr>
-      <tr><td>Mtskheta</td><td><a href="#">Explore</a></td></tr>
-      <tr><td>Uplistsikhe</td><td><a href="#">Explore</a></td></tr>
-      <tr><td>Vardzia</td><td><a href="#">Explore</a></td></tr>
-      <tr><td>Telavi</td><td><a href="#">Explore</a></td></tr>
-      <tr><td>Sighnaghi</td><td><a href="#">Explore</a></td></tr>
-      <tr><td>David Gareja</td><td><a href="#">Explore</a></td></tr>
-      <tr><td>Juta</td><td><a href="#">Explore</a></td></tr>
-      <tr><td>Omalo</td><td><a href="#">Explore</a></td></tr>
-      <tr><td>Shatili</td><td><a href="#">Explore</a></td></tr>
-      <tr><td>Kutaisi</td><td><a href="#">Explore</a></td></tr>
-      <tr><td>Martvili Canyon</td><td><a href="#">Explore</a></td></tr>
-      <tr><td>Prometheus Cave</td><td><a href="#">Explore</a></td></tr>
+      <tr><td>Alles von Linkliste</td><td>20</td><td><a href="Results_0.html">Explore 0</a></td></tr>
+      <tr><td>ohne Nordwesten Westen</td><td>18</td><td><a href="Results_1.html">Explore 1</a></td></tr>
+      <tr><td>ohne Nordwesten komplett</td><td>17</td><td><a href="Results_2.html">Explore 2</a></td></tr>
+      <tr><td>ohne Nordwesten komplett, ohne Nordosten</td><td>16</td><td><a href="Results_3.html">Explore 3</a></td></tr>
+      <tr><td>ohne Nordosten</td><td>19</td><td><a href="Results_4.html">Explore 4</a></td></tr>
+      <tr><td>ohne Nordosten, ohne Nordwesten Westen</td><td>17</td><td><a href="Results_5.html">Explore 5</a></td></tr>
+      <tr><td>ohne Nordosten, ohne Nordwesten Westen, ohne Wein</td><td>16</td><td><a href="Results_6.html">Explore 6</a></td></tr>
+      <tr><td>ohne Nordosten, ohne Nordwesten komplett, ohne Wein</td><td>15</td><td><a href="Results_7.html">Explore 7</a></td></tr>
+      <tr><td>ohne Nordosten, ohne Nordwesten komplett, ohne Wein, ohne RedMountain</td><td>14</td><td><a href="Results_8.html">Explore 8</a></td></tr>
+      <tr><td>ohne Nordosten, ohne Nordwesten komplett, ohne Wein, ohne RedMountain, ohne Batumi</td><td>13</td><td><a href="Results_9.html">Explore 9</a></td></tr>
+      <tr><td>ohne Nordosten, ohne Nordwesten komplett, ohne Wein, ohne RedMountain, ohne Meer</td><td>12</td><td><a href="Results_10.html">Explore 10</a></td></tr>
+      <tr><td>ohne Nordosten, ohne Nordwesten komplett, ohne RedMountain, ohne Batumi</td><td>14</td><td><a href="Results_11.html">Explore 11</a></td></tr>
+      <tr><td>Höhlenstadt + Berge</td><td>4</td><td><a href="Results_12.html">Explore 12</a></td></tr>
+      <tr><td>Höhlenstadt + Berge + Nordosten</td><td>5</td><td><a href="Results_13.html">Explore 13</a></td></tr>
+      <tr><td>Höhlenstadt + Berge + Thermenstadt</td><td>5</td><td><a href="Results_14.html">Explore 14</a></td></tr>
+      <tr><td>Höhlenstadt + Berge + Wein</td><td>6</td><td><a href="Results_15.html">Explore 15</a></td></tr>
+      <tr><td>Höhlenstadt + Berge + Wein + Meer</td><td>5</td><td><a href="Results_16.html">Explore 16</a></td></tr>
+      <tr><td>Höhlenstadt + Berge + Meer</td><td>6</td><td><a href="Results_17.html">Explore 17</a></td></tr>
+      <tr><td>Höhlenstadt + Berge + Meer + Batumi</td><td>5</td><td><a href="Results_18.html">Explore 18</a></td></tr>
+      <tr><td>Höhlenstadt + Berge + Meer + Shovi</td><td>6</td><td><a href="Results_19.html">Explore 19</a></td></tr>
+      <tr><td>Höhlenstadt + Berge + Meer + Nordwesten Westen</td><td>6</td><td><a href="Results_20.html">Explore 20</a></td></tr>
     </tbody>
   </table>
 
-  <img src="https://sphinx-travel.com/wp-content/uploads/2023/03/Caucasus-Mountains-in-Georgia.jpg" alt="Caucasus Mountains in Georgia">
+  <img src="https://i2.pickpik.com/photos/449/324/903/europe-asia-georgia-caucasus-preview.jpg" alt="Caucasus Mountains in Georgia">
 
   <footer>
-    Image courtesy of <a href="https://sphinx-travel.com/caucasus-mountains-in-georgia-discover-the-beauty-of-wild-nature/" target="_blank">Sphinx Travel</a>
+    Image courtesy of <a href="https://i2.pickpik.com/photos/449/324/903/europe-asia-georgia-caucasus-preview.jpg" target="_blank">pickpick.com</a>
   </footer>
 
 </body>
