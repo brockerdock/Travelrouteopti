@@ -1,0 +1,145 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Aug 24 12:29:44 2025
+
+@author: brock
+"""
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vacation Route Optimization</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #fce4ec);
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3em;
+      color: #6a1b9a;
+      text-shadow: 2px 2px #d1c4e9;
+      margin-bottom: 40px;
+    }
+
+    #chart {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+    }
+
+    table {
+      width: 80%;
+      margin: 0 auto 40px auto;
+      border-collapse: collapse;
+      background-color: #fff3e0;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 12px 16px;
+      border: 1px solid #ffccbc;
+      text-align: left;
+    }
+
+    th {
+      background-color: #ffab91;
+      color: #fff;
+    }
+
+    tr:nth-child(even) {
+      background-color: #ffe0b2;
+    }
+
+    img {
+      display: block;
+      max-width: 90%;
+      margin: 0 auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #777;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Vacation Route Optimization</h1>
+
+  <div id="chart"></div>
+
+  <script>
+    const trace1 = {
+      x: [1, 2, 3, 4, 5],
+      y: [10, 15, 13, 17, 22],
+      mode: 'lines+markers',
+      name: 'Route A',
+      line: { color: '#ef5350' }
+    };
+
+    const trace2 = {
+      x: [1, 2, 3, 4, 5],
+      y: [16, 5, 11, 9, 15],
+      mode: 'lines+markers',
+      name: 'Route B',
+      line: { color: '#42a5f5' }
+    };
+
+    const layout = {
+      title: 'Route Comparison',
+      xaxis: { title: 'Day' },
+      yaxis: { title: 'Distance (km)' },
+      plot_bgcolor: '#f3e5f5',
+      paper_bgcolor: '#f3e5f5'
+    };
+
+    Plotly.newPlot('chart', [trace1, trace2], layout);
+  </script>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Places</th>
+        <th>Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Tbilisi</td><td><a href="#">Explore</a></td></tr>
+      <tr><td>Batumi</td><td><a href="#">Explore</a></td></tr>
+      <tr><td>Gudauri</td><td><a href="#">Explore</a></td></tr>
+      <tr><td>Kazbegi</td><td><a href="#">Explore</a></td></tr>
+      <tr><td>Mtskheta</td><td><a href="#">Explore</a></td></tr>
+      <tr><td>Uplistsikhe</td><td><a href="#">Explore</a></td></tr>
+      <tr><td>Vardzia</td><td><a href="#">Explore</a></td></tr>
+      <tr><td>Telavi</td><td><a href="#">Explore</a></td></tr>
+      <tr><td>Sighnaghi</td><td><a href="#">Explore</a></td></tr>
+      <tr><td>David Gareja</td><td><a href="#">Explore</a></td></tr>
+      <tr><td>Juta</td><td><a href="#">Explore</a></td></tr>
+      <tr><td>Omalo</td><td><a href="#">Explore</a></td></tr>
+      <tr><td>Shatili</td><td><a href="#">Explore</a></td></tr>
+      <tr><td>Kutaisi</td><td><a href="#">Explore</a></td></tr>
+      <tr><td>Martvili Canyon</td><td><a href="#">Explore</a></td></tr>
+      <tr><td>Prometheus Cave</td><td><a href="#">Explore</a></td></tr>
+    </tbody>
+  </table>
+
+  <img src="https://sphinx-travel.com/wp-content/uploads/2023/03/Caucasus-Mountains-in-Georgia.jpg" alt="Caucasus Mountains in Georgia">
+
+  <footer>
+    Image courtesy of <a href="https://sphinx-travel.com/caucasus-mountains-in-georgia-discover-the-beauty-of-wild-nature/" target="_blank">Sphinx Travel</a>
+  </footer>
+
+</body>
+</html>
