@@ -50,12 +50,19 @@
     tr:nth-child(even) {
       background-color: #ffe0b2;
     }
-
+        
     img {
       display: block;
       max-width: 90%;
       margin: 0 auto;
       border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    
+    img.heatmap {
+      display: inline;
+      margin: 0.1em;
+      max-width: 48%;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
@@ -65,6 +72,14 @@
       color: #777;
       margin-top: 20px;
     }
+    .fancy-line {
+      border: none;
+      height: 4px;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      border-radius: 2px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      margin: 5px 0;
+    };
   </style>
 </head>
 <body>
@@ -74,7 +89,7 @@
   Basierend auf <a href="https://maps.app.goo.gl/BL4x8w5WfSD31jiS9">dieser Liste</a> habe ich mittels einem <a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem">Traveling Salesman</a> Algorithmus verschiedene optimale Routen berechnet, um ein Gefühl für Reisedauern in Georgien zu bekommen. Auf den verlinkten Karten sind die Routen als Luftlinien eingezeichnet. Für die Optimierung wurden aber reale Reisedauern verwendet.<br> Hier im Diagram ist eine Übersicht der Fahrtdauern und Fahrtdistanzen der Routen zu sehen:
 
   <div id="myPlot"></div>
-  <br><br>
+  <br>
 
   <script>
   
@@ -177,7 +192,16 @@
       <tr><td>20</td><td>Höhlenstadt + Berge + Meer + Nordwesten Westen</td><td>7</td><td><a href="Results_20.html">Explore 20</a></td></tr>
     </tbody>
   </table>
-
+  
+  <hr class="fancy-line">
+  <br>
+  Übersicht über alle Reiseabstände und Reisezeiten:
+  <br>
+  <tbody>
+      <tr><td><img src="DistanceMatrix.png"class="heatmap" alt="Reiseabstände in Georgien"></td><td><img src="DurationMatrix.png" class="heatmap" alt="Reisedauern in Georgien"></td></tr>
+  </tbody>
+  <hr class="fancy-line">
+  <br>
   <img src="https://i2.pickpik.com/photos/449/324/903/europe-asia-georgia-caucasus-preview.jpg" alt="Caucasus Mountains in Georgia">
 
   <footer>
