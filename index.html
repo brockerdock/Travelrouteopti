@@ -212,6 +212,78 @@
   <h3 id="PCTSPSat">Prize Collecting with time Limit modification of TSP (equal weights)</h3>
   
   Eine etwas andere Art der Routenoptimierung ist es jedem Ort einen Wert (Prize) zuzuweisen und dann unter einer Maximalzeitvorgabe eine optimierte Route nach gesammelten Werten auszurechnen. Dazu habe ich <a href="https://github.com/google/or-tools/blob/stable/examples/python/prize_collecting_tsp_sat.py">diesen Algorithmus</a> mit gleichen Werten für alle Orte verwendet.
+  
+
+  <div id="myPlotPC"></div>
+  <br>
+
+  <script>
+  
+    // First trace (left y-axis)
+    var trace1PC = {
+      x: ['1.0', '1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5', '5.0', '5.5', '6.0', '6.5', '7.0', '7.5', '8.0', '8.5'],
+      y: ['5.0', '8.8', '11.3', '13.1', '17.1', '19.7', '21.5', '26.6', '29.4', '29.4', '33.3', '37.2', '40.2', '40.2', '40.2', '48.0'],
+      type: 'scatter',
+      mode: 'lines+markers',
+      name: 'Total Driving Duration',
+      yaxis: 'y1'
+    };
+
+    // Second trace (right y-axis)
+    var trace2PC = {
+      x: ['1.0', '1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5', '5.0', '5.5', '6.0', '6.5', '7.0', '7.5', '8.0', '8.5'],
+      y: [3, 5, 8, 9, 11, 12, 13, 15, 16, 16, 17, 18, 19, 19, 19, 20],
+      type: 'scatter',
+      mode: 'lines+markers',
+      name: 'Visited Places',
+      yaxis: 'y2'
+    };
+
+    var layoutPC = {
+      title: 'Dual Y-Axis Plot',
+      margin: { l: 40, r: 60, t: 30, b: 5 },
+      config: { responsive: true },
+      legend: {
+        orientation: 'h',
+        x: 0.5,
+        y: -0.2,
+        xanchor: 'center',
+        yanchor: 'top'
+        },
+      xaxis: {
+        title: {
+            text: 'Driving Duration / Day'
+            },
+        tickmode: 'linear',
+        dtick: 1,
+        range: [1, 8.5],
+        fixedrange: true // disables zoom/pan on x-axis
+      },
+      yaxis: {
+        title: {
+          text: 'h',
+          font: {
+            size: 12
+          }
+        },
+        side: 'left'
+      },
+      yaxis2: {
+        title: {
+          text: '#',
+          font: {
+            size: 12
+          }
+        },
+        overlaying: 'y',
+        side: 'right',
+        showgrid: false
+      },
+      hovermode: 'x unified'
+    };
+
+    Plotly.newPlot('myPlotPC', [trace1PC, trace2PC], layoutPC);
+  </script>
 <table>
 <thead>
 <tr>
