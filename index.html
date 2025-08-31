@@ -21,6 +21,13 @@
       text-shadow: 2px 2px #d1c4e9;
       margin-bottom: 40px;
     }
+    h3 {
+      text-align: left;
+      font-size: 1.5em;
+      color: #050505;
+      text-shadow: 2px 2px #ddd;
+      margin-bottom: 20px;
+    }
 
     #chart {
       width: 100%;
@@ -85,7 +92,7 @@
 <body>
 
   <h1>Vacation Route Optimization</h1>
-  
+  <h3>Traveling Salesman Problem (TSP)</h3>
   Basierend auf <a href="https://maps.app.goo.gl/BL4x8w5WfSD31jiS9">dieser Liste</a> habe ich mittels einem <a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem">Traveling Salesman</a> Algorithmus verschiedene optimale Routen berechnet, um ein Gefühl für Reisedauern in Georgien zu bekommen. Auf den verlinkten Karten sind die Routen als Luftlinien eingezeichnet. Für die Optimierung wurden aber reale Reisedauern verwendet.<br> Hier im Diagram ist eine Übersicht der Fahrtdauern und Fahrtdistanzen der Routen zu sehen:
 
   <div id="myPlot"></div>
@@ -202,6 +209,71 @@
   </tbody>
   <hr class="fancy-line">
   <br>
+  <h3 id="PCTSPSat">Prize Collecting with time Limit modification of TSP (equal weights)</h3>
+  
+  Eine etwas andere Art der Routenoptimierung ist es jedem Ort einen Wert (Prize) zuzuweisen und dann unter einer Maximalzeitvorgabe eine optimierte Route nach gesammelten Werten auszurechnen. Dazu habe ich <a href="https://github.com/google/or-tools/blob/stable/examples/python/prize_collecting_tsp_sat.py">diesen Algorithmus</a> mit gleichen Werten für alle Orte verwendet.
+<table>
+<thead>
+<tr>
+<th>Reisezeit / Tag</th>
+<th>Gesamtreisedauer</th>
+<th>Gesamtentfernung</th>
+<th>Anzahl Orte</th>
+<th>Link zur Route</th>
+</tr>
+</thead>
+<tbody>
+  <tr><td>1.0 h</td><td>5.0 h</td><td>292 km</td><td>3</td><td><a href='PrizeEqual_1.0.html'>Explore</a></td></tr>
+  <tr><td>1.5 h</td><td>8.8 h</td><td>600 km</td><td>5</td><td><a href='PrizeEqual_1.5.html'>Explore</a></td></tr>
+  <tr><td>2.0 h</td><td>11.3 h</td><td>679 km</td><td>8</td><td><a href='PrizeEqual_2.0.html'>Explore</a></td></tr>
+  <tr><td>2.5 h</td><td>13.1 h</td><td>767 km</td><td>9</td><td><a href='PrizeEqual_2.5.html'>Explore</a></td></tr>
+  <tr><td>3.0 h</td><td>17.1 h</td><td>999 km</td><td>11</td><td><a href='PrizeEqual_3.0.html'>Explore</a></td></tr>
+  <tr><td>3.5 h</td><td>19.7 h</td><td>1017 km</td><td>12</td><td><a href='PrizeEqual_3.5.html'>Explore</a></td></tr>
+  <tr><td>4.0 h</td><td>21.5 h</td><td>1112 km</td><td>13</td><td><a href='PrizeEqual_4.0.html'>Explore</a></td></tr>
+  <tr><td>4.5 h</td><td>26.6 h</td><td>1374 km</td><td>15</td><td><a href='PrizeEqual_4.5.html'>Explore</a></td></tr>
+  <tr><td>5.0 h</td><td>29.4 h</td><td>1566 km</td><td>16</td><td><a href='PrizeEqual_5.0.html'>Explore</a></td></tr>
+  <tr><td>5.5 h</td><td>29.4 h</td><td>1566 km</td><td>16</td><td><a href='PrizeEqual_5.5.html'>Explore</a></td></tr>
+  <tr><td>6.0 h</td><td>33.3 h</td><td>1737 km</td><td>17</td><td><a href='PrizeEqual_6.0.html'>Explore</a></td></tr>
+  <tr><td>6.5 h</td><td>37.2 h</td><td>1899 km</td><td>18</td><td><a href='PrizeEqual_6.5.html'>Explore</a></td></tr>
+  <tr><td>7.0 h</td><td>40.2 h</td><td>2012 km</td><td>19</td><td><a href='PrizeEqual_7.0.html'>Explore</a></td></tr>
+  <tr><td>7.5 h</td><td>40.2 h</td><td>2012 km</td><td>19</td><td><a href='PrizeEqual_7.5.html'>Explore</a></td></tr>
+  <tr><td>8.0 h</td><td>40.2 h</td><td>2012 km</td><td>19</td><td><a href='PrizeEqual_8.0.html'>Explore</a></td></tr>
+  <tr><td>8.5 h</td><td>48.0 h</td><td>2201 km</td><td>20</td><td><a href='PrizeEqual_8.5.html'>Explore</a></td></tr>
+</tbody>
+</table>
+  <hr class="fancy-line">
+  <br>
+<h3 id="PCTSPSatMat">Prize Collecting with time Limit modification of TSP (Matthias weights)</h3>
+Hier habe ich eine optimierte Route gemäß Werten, verteilt nach meiner Präferenz, berechnet.
+<table>
+<thead>
+<tr>
+<th>Reisezeit / Tag</th>
+<th>Gesamtreisedauer</th>
+<th>Gesamtentfernung</th>
+<th>Anzahl Orte</th>
+<th>Link zur Route</th>
+</tr>
+</thead>
+<tbody>
+  <tr><td>1.0 h</td><td>5.9 h</td><td>306 km</td><td>2</td><td><a href='PrizeEqualMat_1.0.html'>Explore</a></td></tr>
+  <tr><td>1.5 h</td><td>8.8 h</td><td>600 km</td><td>5</td><td><a href='PrizeEqualMat_1.5.html'>Explore</a></td></tr>
+  <tr><td>2.0 h</td><td>11.8 h</td><td>741 km</td><td>7</td><td><a href='PrizeEqualMat_2.0.html'>Explore</a></td></tr>
+  <tr><td>2.5 h</td><td>14.3 h</td><td>886 km</td><td>9</td><td><a href='PrizeEqualMat_2.5.html'>Explore</a></td></tr>
+  <tr><td>3.0 h</td><td>17.4 h</td><td>1020 km</td><td>10</td><td><a href='PrizeEqualMat_3.0.html'>Explore</a></td></tr>
+  <tr><td>3.5 h</td><td>20.9 h</td><td>1197 km</td><td>10</td><td><a href='PrizeEqualMat_3.5.html'>Explore</a></td></tr>
+  <tr><td>4.0 h</td><td>23.6 h</td><td>1229 km</td><td>13</td><td><a href='PrizeEqualMat_4.0.html'>Explore</a></td></tr>
+  <tr><td>4.5 h</td><td>26.9 h</td><td>1444 km</td><td>14</td><td><a href='PrizeEqualMat_4.5.html'>Explore</a></td></tr>
+  <tr><td>5.0 h</td><td>29.4 h</td><td>1566 km</td><td>16</td><td><a href='PrizeEqualMat_5.0.html'>Explore</a></td></tr>
+  <tr><td>5.5 h</td><td>32.7 h</td><td>1616 km</td><td>16</td><td><a href='PrizeEqualMat_5.5.html'>Explore</a></td></tr>
+  <tr><td>6.0 h</td><td>35.6 h</td><td>1729 km</td><td>17</td><td><a href='PrizeEqualMat_6.0.html'>Explore</a></td></tr>
+  <tr><td>6.5 h</td><td>38.9 h</td><td>1942 km</td><td>18</td><td><a href='PrizeEqualMat_6.5.html'>Explore</a></td></tr>
+  <tr><td>7.0 h</td><td>40.2 h</td><td>2012 km</td><td>19</td><td><a href='PrizeEqualMat_7.0.html'>Explore</a></td></tr>
+  <tr><td>7.5 h</td><td>45.0 h</td><td>2135 km</td><td>18</td><td><a href='PrizeEqualMat_7.5.html'>Explore</a></td></tr>
+  <tr><td>8.0 h</td><td>46.6 h</td><td>2129 km</td><td>19</td><td><a href='PrizeEqualMat_8.0.html'>Explore</a></td></tr>
+  <tr><td>8.5 h</td><td>48.0 h</td><td>2201 km</td><td>20</td><td><a href='PrizeEqualMat_8.5.html'>Explore</a></td></tr>
+</tbody>
+</table>
   <img src="https://i2.pickpik.com/photos/449/324/903/europe-asia-georgia-caucasus-preview.jpg" alt="Caucasus Mountains in Georgia">
 
   <footer>
